@@ -49,7 +49,7 @@ To run this project locally, follow these steps:
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/coder-aadii/fog-assignment.git](https://github.com/coder-aadii/FOG-ASSIGNMENT-1.git)
+git clone https://github.com/coder-aadii/fog-assignment.git
 cd fog-assignment
 ```
 
