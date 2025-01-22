@@ -3,8 +3,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import FilterSorting from './components/FilterSorting';
 import ProductGrid from './components/ProductGrid';
-import ProductCard from './components/ProductCard';
-import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 
 // Assuming you want to fetch products from the API and display them

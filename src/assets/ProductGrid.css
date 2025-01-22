@@ -135,15 +135,70 @@
   background-color: #ef5777;
 }
 
-/* Responsiveness */
+/* Responsiveness for Medium Screens */
 @media only screen and (max-width: 990px) {
   .product-grid-container {
     grid-template-columns: repeat(2, 1fr);  /* 2 columns for medium screens */
   }
 }
 
-@media only screen and (max-width: 600px) {
+/* Responsiveness for Mobile Screens */
+@media (max-width: 768px) {
+  /* 2 columns for mobile screens (8x2 grid) */
   .product-grid-container {
-    grid-template-columns: 1fr;  /* 1 column for small screens */
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns for mobile screens */
+    padding: 10px;  /* Less padding on small screens */
+  }
+
+  /* Remove hover effect */
+  .product-card:hover {
+    transform: none;  /* Disabling hover effect on mobile */
+  }
+
+  /* Adjusting the placement of Add to Cart button and icons for mobile */
+  .product-card {
+    padding-bottom: 20px;  /* Extra padding at the bottom to prevent overlap */
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+  }
+
+  /* Move Add to Cart between product image and product name */
+  .add-to-cart {
+    margin-top: 10px; /* Ensure it's between the image and product name */
+    margin-bottom: 10px; /* Ensure space between product name and description */
+  }
+
+  /* Position icons (Like, Share, Compare) below the product price */
+  .icon-btn {
+    margin-top: 15px; /* Increased spacing between price and icons */
+    display: flex;
+    justify-content: center; /* Centering icons */
+  }
+
+  .icon-btn button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+  }
+
+  .icon-btn button img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-btn button span {
+    font-size: 12px;
+    color: #333;
+  }
+
+  /* Product details padding adjustment */
+  .product-details {
+    padding: 0 10px;
   }
 }
+
