@@ -1,0 +1,23 @@
+[build]
+  # Directory where the build files are located
+  publish = "build"
+
+  # Command to build the React app
+  command = "npm run build"
+
+[dev]
+  # Port for local development
+  port = 3000
+  # Command to run the React app in development
+  command = "npm start"
+
+# Configuration for redirecting API requests to your backend hosted on Render
+[[redirects]]
+  from = "/api/*"
+  to = "https://<your-backend-url>.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# Caching settings (optional for faster builds)
+[build.environment]
+  NODE_VERSION = "16.14.0"  # Set your preferred Node version
