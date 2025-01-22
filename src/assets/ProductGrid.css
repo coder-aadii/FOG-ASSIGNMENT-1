@@ -108,9 +108,9 @@
 
 /* Add to Cart */
 .add-to-cart {
-  padding: 10px 20px;
+  padding: 5px 20px;
   font-size: 16px;
-  background-color: #333;
+  background-color: rgb(16, 163, 16);
   color: white;
   border: none;
   border-radius: 5px;

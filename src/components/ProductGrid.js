@@ -3,8 +3,7 @@ import axios from 'axios';
 import '../assets/ProductGrid.css';
 import Pagination from './Pagination';
 
-const ProductGrid = () => {
-  const [products, setProducts] = useState([]);
+const ProductGrid = ({ products }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const limit = 16; // Number of products per page
@@ -14,7 +13,6 @@ const ProductGrid = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/products?page=${currentPage}&limit=${limit}`);
-        setProducts(response.data.products);
         setTotalProducts(response.data.total);
       } catch (error) {
         console.error('There was an error fetching the products:', error);
@@ -22,12 +20,14 @@ const ProductGrid = () => {
     };
 
     fetchProducts();
-  }, [currentPage]); // Refetch products when currentPage changes
+  }, [currentPage]); // Refetch total products when currentPage changes
+
+  const currentProducts = products.slice((currentPage - 1) * limit, currentPage * limit);
 
   return (
     <div>
       <div className="product-grid-container">
-        {products.map(product => (
+        {currentProducts.map(product => (
           <div className="product-card" key={product._id}>
             <div className="product-image">
               <img src={product.imageUrl} alt={product.name} />
