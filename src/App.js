@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FilterSorting from './components/FilterSorting';
@@ -13,20 +13,20 @@ const App = () => {
   const [limit] = useState(16); // Number of products per page
 
   // Fetch products on page change
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/products?page=${currentPage}&limit=${limit}`);
       const data = await response.json();
       setProducts(data.products);
-      setTotalProducts(data.total);
+      setTotalProducts(data.total); // This can be used for pagination logic
     } catch (error) {
       console.error('Error fetching products:', error);
     }
-  };
+  }, [currentPage, limit]);
 
   useEffect(() => {
     fetchProducts();
-  }, [currentPage]);  // Re-fetch products when currentPage changes
+  }, [fetchProducts]);  // Re-fetch products when fetchProducts or currentPage changes
 
   return (
     <div className="App">
@@ -34,12 +34,6 @@ const App = () => {
       <Hero />
       <FilterSorting />
       <ProductGrid products={products} />
-      {/* <Pagination 
-        currentPage={currentPage} 
-        totalProducts={totalProducts} 
-        limit={limit} 
-        setCurrentPage={setCurrentPage} 
-      /> */}
       <Footer />
     </div>
   );
