@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
       <div className="product-content">
         <h3 className="title"><a href="#">{product.title}</a></h3>
         <div className="price">
-          ${product.price} <span>${product.originalPrice}</span>
+          ${product.price} <span>₹{product.originalPrice}</span>
         </div>
         <a className="add-to-cart" href="#">+ Add To Cart</a>
       </div>
