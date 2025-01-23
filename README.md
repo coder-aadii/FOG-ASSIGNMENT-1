@@ -3,7 +3,7 @@
 ## Overview
 
 ## 🚀 Live Preview
-[Check out the live site here!](https://adityaaerpule.netlify.app)
+[Check out the live site here!](https://fog-assignment1.netlify.app)
 
 FOG-ASSIGNMENT is a full-stack web application developed using React for the frontend, Node.js for the backend, and MongoDB for database management. This project is aimed at creating a functional and visually appealing homepage for the fictional e-commerce platform, *Furniro*, that sells furniture and decor.
 
