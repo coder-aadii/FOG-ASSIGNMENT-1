@@ -1,7 +1,7 @@
 [build]
   # Directory where the build files are located
   publish = "build"
-
+  
   # Command to build the React app
   command = "npm run build"
 
@@ -16,8 +16,7 @@
   from = "/api/*"
   to = "https://fog-assignment-1.onrender.com/api/:splat"
   status = 200
-  force = true
 
 # Caching settings (optional for faster builds)
 [build.environment]
-  NODE_VERSION = "16.14.0"  # Set your preferred Node version
+  NODE_VERSION = "18.16.0"  # Updated Node version
