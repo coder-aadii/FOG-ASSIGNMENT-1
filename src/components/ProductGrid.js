@@ -15,8 +15,15 @@ const ProductGrid = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(`${apiUrl}/api/products?page=${currentPage}&limit=${limit}`);
-        setProducts(response.data.products || []);  // Safeguard against undefined products
-        setTotalProducts(response.data.total || 0);  // Safeguard against undefined total
+
+        // Check if the response is JSON
+        if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
+          setProducts(response.data.products || []);  // Safeguard against undefined products
+          setTotalProducts(response.data.total || 0);  // Safeguard against undefined total
+        } else {
+          console.error('Unexpected response format:', response);
+        }
+
       } catch (error) {
         console.error('There was an error fetching the products:', error);
       }

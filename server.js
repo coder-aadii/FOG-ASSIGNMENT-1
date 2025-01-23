@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-// Initialize the app
 const app = express();
 
 // Middleware
@@ -54,10 +53,13 @@ app.get('/api/products', async (req, res) => {
       currentPage: page
     });
   } catch (error) {
-    console.error('Error fetching products:', error);  // Log the actual error message
+    console.error('Error fetching products:', error);
     res.status(500).json({ message: 'Error fetching products', error: error.message });
   }
 });
+
+// Serve static files
+app.use(express.static('public')); // Make sure static files like index.html are served AFTER the API routes
 
 // Start the server on the given PORT or default to 5000
 const PORT = process.env.PORT || 5000;

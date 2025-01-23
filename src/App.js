@@ -11,9 +11,22 @@ const App = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://fog-assignment-1.onrender.com/api/products'); 
+        const response = await fetch('https://fog-assignment-1.onrender.com/api/products');
+        
+        // Check if the response is successful (status 200-299)
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+
+        // Try to parse the JSON data
         const data = await response.json();
-        setProducts(data.products);
+
+        // Check if 'products' is available in the response
+        if (data && data.products) {
+          setProducts(data.products);
+        } else {
+          throw new Error('Products data is missing in response');
+        }
       } catch (error) {
         console.error('Error fetching products:', error);
       }
