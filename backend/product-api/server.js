@@ -1,21 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');  // Import cors
+const cors = require('cors');
 
+// Initialize the app
 const app = express();
 
-// Use CORS middleware before your routes
+// Middleware
 app.use(cors());  // Enable CORS for all routes
+app.use(express.json());  // To parse JSON request bodies
 
-// Connect to MongoDB
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/productsdb';  // Use the environment variable or fallback to local DB
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log(err));
+// MongoDB URI
+const mongoURI = 'mongodb+srv://adityaaerpule191996:Asdf1234@fog-cluster.x015l.mongodb.net/fog_database?retryWrites=true&w=majority';
 
-// Product Schema
+// Connect to MongoDB Atlas
+mongoose.connect(mongoURI)
+    .then(() => console.log('Connected to MongoDB Atlas'))
+    .catch(err => console.error('Failed to connect to MongoDB Atlas:', err));
+
+// Define Product Schema
 const productSchema = new mongoose.Schema({
   name: String,
   description: String,
@@ -23,6 +25,7 @@ const productSchema = new mongoose.Schema({
   imageUrl: String
 });
 
+// Create Product model
 const Product = mongoose.model('Product', productSchema);
 
 // API to get products with pagination
@@ -31,21 +34,32 @@ app.get('/api/products', async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 16;
 
+    // Get total product count and paginated products
     const totalProducts = await Product.countDocuments();
+    const totalPages = Math.ceil(totalProducts / limit);
+
+    // Check if the requested page is valid, if not return the first page
+    if (page > totalPages) {
+      return res.status(400).json({ message: 'Page number exceeds total pages.' });
+    }
+
     const products = await Product.find()
       .skip((page - 1) * limit)
       .limit(limit);
 
     res.json({
       products,
-      total: totalProducts
+      total: totalProducts,
+      totalPages,
+      currentPage: page
     });
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching products' });
+    console.error('Error fetching products:', error);  // Log the actual error message
+    res.status(500).json({ message: 'Error fetching products', error: error.message });
   }
 });
 
-// Start server
+// Start the server on the given PORT or default to 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
