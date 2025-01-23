@@ -2,7 +2,10 @@
 
 ## Overview
 
-FOG-ASSIGNMENT is a full-stack web application developed using React for the frontend, Node.js for the backend, and MongoDB for database management. This project is aimed at creating a functional and visually appealing homepage for the fictional e-commerce platform, **Furniro**, that sells furniture and decor.
+## 🚀 Live Preview
+[Check out the live site here!](https://adityaaerpule.netlify.app)
+
+FOG-ASSIGNMENT is a full-stack web application developed using React for the frontend, Node.js for the backend, and MongoDB for database management. This project is aimed at creating a functional and visually appealing homepage for the fictional e-commerce platform, *Furniro*, that sells furniture and decor.
 
 ## Table of Contents
 
@@ -22,19 +25,19 @@ Furniro's homepage offers a clean and modern interface that showcases various pr
 
 ## Tech Stack
 
-- **Frontend**: React, CSS3, HTML5
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Other**: Mongoose for database interaction, Axios for API requests, React Router for navigation, and custom CSS for styling.
+- *Frontend*: React, CSS3, HTML5
+- *Backend*: Node.js, Express.js
+- *Database*: MongoDB
+- *Other*: Mongoose for database interaction, Axios for API requests, React Router for navigation, and custom CSS for styling.
 
 ## Features
 
-- **Dynamic Hero Section**: Featuring visually appealing background images, blur effects, and overlay.
-- **Responsive Design**: Ensures a smooth experience on both desktop and mobile.
-- **Navigation Links**: Includes pages such as Home, Shop, About, and Contact.
-- **Product Display**: Showcases a collection of products with details.
-- **Backend Integration**: Fetches product data from MongoDB using an API built with Node.js and Express.
-- **User Authentication**: Allows users to log in and view personalized content (Future scope).
+- *Dynamic Hero Section*: Featuring visually appealing background images, blur effects, and overlay.
+- *Responsive Design*: Ensures a smooth experience on both desktop and mobile.
+- *Navigation Links*: Includes pages such as Home, Shop, About, and Contact.
+- *Product Display*: Showcases a collection of products with details.
+- *Backend Integration*: Fetches product data from MongoDB using an API built with Node.js and Express.
+- *User Authentication*: Allows users to log in and view personalized content (Future scope).
 
 ## Installation
 
@@ -42,9 +45,8 @@ To run this project locally, follow these steps:
 
 ### Prerequisites
 
-- **Node.js** and **npm** (Node Package Manager) must be installed on your system. If not, you can download and install it from [Node.js Official Site](https://nodejs.org/).
-
-- **MongoDB**: Install MongoDB locally or use a cloud service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+- *Node.js* and *npm* (Node Package Manager) must be installed on your system. If not, you can download and install it from [Node.js Official Site](https://nodejs.org/).
+- *MongoDB*: Install MongoDB locally or use a cloud service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
 ### 1. Clone the repository
 
@@ -62,6 +64,8 @@ cd backend
 npm install
 ```
 
+> **Note**: The backend code is hosted in a separate repository: [fog-backend-1](https://github.com/coder-aadii/fog-backend-1). Make sure to clone and set up the backend repository if needed.
+
 ### 3. Install Frontend Dependencies
 
 Navigate to the frontend directory and install the required packages:
@@ -73,14 +77,14 @@ npm install
 
 ### 4. Setup Environment Variables
 
-Create an `.env` file in the backend directory and add the following:
+Create an .env file in the backend directory and add the following:
 
 ```bash
 MONGODB_URI=<your-mongodb-uri>
 PORT=5000
 ```
 
-In the frontend directory, create a `.env` file and add:
+In the frontend directory, create a .env file and add:
 
 ```bash
 REACT_APP_API_URL=http://localhost:5000
@@ -106,11 +110,11 @@ cd frontend
 npm start
 ```
 
-The application should now be running on `http://localhost:3000` (frontend) and `http://localhost:5000` (backend).
+The application should now be running on http://localhost:3000 (frontend) and http://localhost:5000 (backend).
 
 ## Usage
 
-- Access the Furniro homepage at `http://localhost:3000`.
+- Access the Furniro homepage at http://localhost:3000.
 - Explore the product categories and interact with the page features.
 - The backend provides the necessary APIs to serve product data dynamically.
 
@@ -119,10 +123,10 @@ The application should now be running on `http://localhost:3000` (frontend) and 
 If you'd like to contribute to this project, please follow these steps:
 
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature-name`)
+2. Create a new branch (git checkout -b feature-name)
 3. Make your changes
-4. Commit your changes (`git commit -am 'Add new feature'`)
-5. Push to the branch (`git push origin feature-name`)
+4. Commit your changes (git commit -am 'Add new feature')
+5. Push to the branch (git push origin feature-name)
 6. Open a pull request
 
 Please make sure to follow the code style guidelines and include tests where necessary.
@@ -133,4 +137,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Thank you for checking out the **FOG-ASSIGNMENT**!
+Thank you for checking out the *FOG-ASSIGNMENT*!
