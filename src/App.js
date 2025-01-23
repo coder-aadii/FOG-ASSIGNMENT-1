@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://fog-assignment-1.onrender.com/api/products');
+        const response = await fetch('https://fog-backend-1.onrender.com/api/products');
         
         // Check if the response is successful (status 200-299)
         if (!response.ok) {
