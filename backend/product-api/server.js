@@ -31,6 +31,7 @@ const Product = mongoose.model('Product', productSchema);
 // API to get products with pagination
 app.get('/api/products', async (req, res) => {
   try {
+    return res.json({data:"test"});
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 16;
 
@@ -43,10 +44,12 @@ app.get('/api/products', async (req, res) => {
       return res.status(400).json({ message: 'Page number exceeds total pages.' });
     }
 
+
+    
     const products = await Product.find()
       .skip((page - 1) * limit)
       .limit(limit);
-
+    
     res.json({
       products,
       total: totalProducts,
