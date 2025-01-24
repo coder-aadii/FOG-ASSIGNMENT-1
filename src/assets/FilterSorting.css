@@ -68,7 +68,7 @@ span {
     width: 100%;
     /* Make the filter button take full width */
     margin-bottom: 20px;
-    /* Add margin below the button */
+    opacity: 60%;
   }
 
   .sort-options {
